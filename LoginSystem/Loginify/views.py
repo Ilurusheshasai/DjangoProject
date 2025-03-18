@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+# Test view
+def hello_world(request):
+    return HttpResponse("Hello, world!")
+
+# Placeholder login view (will build later)
+def login_view(request):
+    return HttpResponse("This is the login page")
