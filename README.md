@@ -54,7 +54,7 @@ Task 2:
             - To return simple HTTP response
 
             This file basically contains code that defines what should happen when a user wants to see a view of our application defined in Urls.py. 
-            
+
             projectfolder/applicationfolder/*.py
 
         2. Define Urls
@@ -65,6 +65,12 @@ Important: In the loginify folder we create or edit url.py and views.py.
 In Django the request first go to the project and then the application.
 So we must say somewhere to Django that we have few URL's in out application, we do that by creating or editing the urls.py in 
 projectfolder/projectfolder/urls.py
+
+How to verify:
+    run this command from the project root:
+        python manage.py runserver
+    you should be able to access the server at 127.0.0.1:8000
+    Attach urls at the end of this base like "http://127.0.0.1:8000/hello/" to gain access to those views.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
