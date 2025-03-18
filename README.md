@@ -128,6 +128,8 @@ Task 4: MODELS & ADMIN
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Task 5:
 
-    1.
+    1. create views in views.py
+    2. Link in urls.py
+    3. No need to do anything in login systems urls.py as we have already linked this application endpoints previously.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from .models import UserDetails
 from django.contrib import messages
+import json
 
 # Test view
 def hello_world(request):
@@ -46,3 +48,57 @@ def login_view(request):
             return redirect('login')
 
     return render(request, 'login.html')
+
+# Get all users
+def get_all_users(request):
+    users = UserDetails.objects.all().values()
+    return JsonResponse(list(users), safe=False)
+
+# Get single user by email
+def get_user_by_email(request, email):
+    try:
+        user = UserDetails.objects.get(email=email)
+        user_data = {
+            'username': user.username,
+            'email': user.email,
+            'password': user.password
+        }
+        return JsonResponse(user_data)
+    except UserDetails.DoesNotExist:
+        return JsonResponse({'error': 'User not found'}, status=404)
+
+# Update user details
+@csrf_exempt
+def update_user(request, email):
+    if request.method in ['POST', 'PATCH']:
+        try:
+            user = UserDetails.objects.get(email=email)
+
+            try:
+                data = json.loads(request.body.decode('utf-8'))
+            except json.JSONDecodeError:
+                return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+            
+            username = data.get('username', user.username)
+            password = data.get('password', user.password)
+
+            # Update fields using queryset's update
+            UserDetails.objects.filter(email=email).update(username=username, password=password)
+
+            return JsonResponse({'message': 'User updated successfully'})
+        except UserDetails.DoesNotExist:
+            return JsonResponse({'error': 'User not found'}, status=404)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+# Delete user by email
+@csrf_exempt
+def delete_user(request, email):
+    if request.method == 'POST':
+        try:
+            user = UserDetails.objects.get(email=email)
+            user.delete()
+            return JsonResponse({'message': 'User deleted successfully'})
+        except UserDetails.DoesNotExist:
+            return JsonResponse({'error': 'User not found'}, status=404)
+    return JsonResponse({'error': 'Invalid request method'}, status=400)
