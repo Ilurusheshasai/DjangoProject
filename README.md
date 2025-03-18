@@ -71,6 +71,22 @@ How to verify:
         python manage.py runserver
     you should be able to access the server at 127.0.0.1:8000
     Attach urls at the end of this base like "http://127.0.0.1:8000/hello/" to gain access to those views.
+
+Note: Login fails as we didn't define any models
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Task 3: Define models, implement views, and set up URLs and templates in
+Loginify.
 
+So, Now we define the user model
+Django also provides us with UI to see our models. but to this model in UI we need to link it up to the admin page.
+
+We have to make migrations and migrate to see the changes finally.
+
+We need to access signup and login pages and landing page we create a folder called template in loginify, and add these html files there.
+
+in application loginify, add the related views and urls in views.py and urls.py
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
