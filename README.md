@@ -86,7 +86,48 @@ We have to make migrations and migrate to see the changes finally.
 We need to access signup and login pages and landing page we create a folder called template in loginify, and add these html files there.
 
 in application loginify, add the related views and urls in views.py and urls.py
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+now commit these changes and sigup on console
+
+still after this step you will not be able to login to django ui, lets do that in next step.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 4: MODELS & ADMIN
+
+    1. Setup superuser
+        python manage.py createsuperuser 
+
+        configure the details asked.
+
+    2. Access admin page at 127.0.0.1:8000/admin
+    3. Getting familiar with django Shell
+        - Create new user instance
+            new_user = UserDetails.objects.create(username="example_user", email="user@example.com", password="example123")
+            
+            obj = YourModel.objects.create(field1=value1, field2=value2)
+
+
+        - Retrieve all Users
+            all_users = UserDetails.objects.all()
+
+
+        - Get a user
+            user_by_name = UserDetails.objects.get(username=username)
+            queryset = YourModel.objects.filter(field1=value1)
+
+
+        - Update a user
+            obj.field1 = new_value
+            obj.save()
+
+
+        - Delete a user
+            username_to_delete= “john”
+            user_to_delete =
+            User.objects.get(username=username_to_delete)
+            obj.delete()
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 5:
+
+    1.
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
