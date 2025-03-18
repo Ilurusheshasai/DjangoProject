@@ -1,0 +1,25 @@
+# Virtual environment
+DjangoAssignment/
+*.pyc
+__pycache__/
+
+# Django static and media files
+staticfiles/
+media/
+
+# Database files
+*.sqlite3
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment variables file
+.env
+
+#git folder
+.git
